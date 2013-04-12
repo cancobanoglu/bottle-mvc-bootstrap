@@ -74,10 +74,6 @@ STATIC = 'static'
 VIEWS = 'views'
 
 
-def show_help():
-    print('HERE GOES HELP TEXT')
-
-
 def create_file(path, content):
     f = open(path, 'w')
     f.write(content)
@@ -136,6 +132,16 @@ def new_project(name):
     ZipFile(CONTENT_FILES['bootstrap']).extractall(os.sep.join([name, STATIC]))
     shutil.copy(CONTENT_FILES['jquery'], os.sep.join([name, STATIC, 'js']))
 
+
+def show_help():
+    help_text = """\
+Usage: bottle-mvc-bootstrap [PROJECT_NAME]
+Creates a scaffold for a mvc bottle project with bootstrap.
+
+Arguments:
+    -h, --help        shows this help and exits"""
+    print(help_text)
+
 if __name__ == '__main__':
     from sys import argv as args
 
@@ -143,12 +149,8 @@ if __name__ == '__main__':
         '-h': show_help,
         '--help': show_help
     }
-    new = {
-        '-n': new_project,
-        '--new': new_project
-    }
 
-    if len(args) == 3 and args[1] in new.keys():
-        new[args[1]](args[2])
+    if len(args) == 2 and args[1] not in help.keys():
+        new_project(args[1])
     else:
         help['-h']()
