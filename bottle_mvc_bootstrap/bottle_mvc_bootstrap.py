@@ -131,7 +131,7 @@ def create_scaffold(name):
 
     # runserver:
     create_file(
-        'runserver.py',
+        'run_' + name + '.py',
         CONTENT['run'].format(project=name)
     )
 
