@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
+import sys
 import shutil
 from zipfile import ZipFile
 
@@ -62,10 +63,19 @@ if __name__ == "__main__":\n\
 '
 }
 
+_PATH = os.sep.join([
+    sys.prefix,
+    'lib',
+    'python' + '.'.join(str(i) for i in sys.version_info[:2]),
+    'site-packages',
+    'bottle_mvc_bootstrap',
+    'static_files'
+])
+
 CONTENT_FILES = {
-    'index': os.sep.join(['static_files', 'index.tpl']),
-    'bootstrap': os.sep.join(['static_files', 'bootstrap.zip']),
-    'jquery': os.sep.join(['static_files', 'jquery.js'])
+    'index': os.sep.join([_PATH, 'index.tpl']),
+    'bootstrap': os.sep.join([_PATH, 'bootstrap.zip']),
+    'jquery': os.sep.join([_PATH, 'jquery.js'])
 }
 
 CONTROLLERS = 'controllers'
