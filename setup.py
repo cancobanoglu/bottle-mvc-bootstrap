@@ -8,6 +8,9 @@ setup(
     description='Scaffold generator for Bottle projects using MVC and Bootstrap',
     author='Antonio Dourado',
     author_email='tonnydourado@gmail.com',
+    license='BSD',
     packages=['bottle_mvc_bootstrap'],
-    data_files=[('static_files', ['bootstrap.zip', 'index.tpl', 'jquery.js'])],
+    scripts=['bottle-mvc-bootstrap.py'],
+    requires=['bottle>=0.11.6'],
+    data_files=[('static_files', ['bootstrap.zip', 'index.tpl', 'jquery.js'])]
 )
