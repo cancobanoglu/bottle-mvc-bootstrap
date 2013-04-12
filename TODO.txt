@@ -1,0 +1,3 @@
+ * Handle excetions on creating directories and files;
+ * Refactor CONTENT representation
+ * Refactor file creation
